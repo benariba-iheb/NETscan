@@ -1,0 +1,44 @@
+import nmap
+
+scanner = nmap.PortScanner()
+
+print("Welcome to the NETscan tool")
+print("<----------------------------------------------------->")
+
+ip_addr = input("Please enter the IP address you want to scan: ")
+print("The IP you entered is: ", ip_addr)
+type(ip_addr)
+
+resp = input("""\nPlease enter the type of scan you want to run
+                1)TCP(SYN ACK) Scan
+                2)UDP Scan
+                3)total Scan \n""")
+
+print("You have selected option: ", resp)
+
+if resp == '1':
+    print("TCP(SYN ACK) scan: ")
+    scanner.scan(ip_addr ,  "1-1024" , "-v -sS" , True) 
+    print(scanner.scaninfo())
+    print("ip Status: ",scanner[ip_addr].state())
+    print(scanner[ip_addr].all_protocols())
+    print("open ports: ", scanner[ip_addr]['tcp'].keys())
+
+elif resp == '2':
+    print("UDP scan: ")
+    scanner.scan(ip_addr , "1-1024" , "-v -sU" , True) 
+    print(scanner.scaninfo())
+    print("ip Status: ",scanner[ip_addr].state())
+    print(scanner[ip_addr].all_protocols())
+    print("open ports: ", scanner[ip_addr]['udp'].keys())
+
+elif resp == '3':
+    print("total scan: ")
+    scanner.scan(ip_addr , "1-1024" , "-v -sS -sV -sC -A -O" , True) 
+    print(scanner.scaninfo())
+    print("ip Status: ",scanner[ip_addr].state())
+    print(scanner[ip_addr].all_protocols())
+    print("open ports: ", scanner[ip_addr]['tcp'].keys())
+
+else:
+    print("please enter one of the specefied scanning types.")
