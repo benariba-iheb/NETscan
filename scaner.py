@@ -29,8 +29,8 @@ if resp == '1':
     for os_match in os_matches:
         print(f"Name: {os_match['name']}")        
         has_wifi = False
-             for os_class in os_match['osclass']:
-                if os_class['type'] == 'WAP':
+        for os_class in os_match['osclass']:
+              if os_class['type'] == 'WAP':
                   has_wifi = True
                   break
                   
@@ -52,8 +52,8 @@ elif resp == '2':
     for os_match in os_matches:
         print(f"Name: {os_match['name']}")        
         has_wifi = False
-             for os_class in os_match['osclass']:
-                if os_class['type'] == 'WAP':
+        for os_class in os_match['osclass']:
+              if os_class['type'] == 'WAP':
                   has_wifi = True
                   break
         
@@ -75,8 +75,8 @@ elif resp == '3':
     for os_match in os_matches:
         print(f"Name: {os_match['name']}")        
         has_wifi = False
-            for os_class in os_match['osclass']:
-                if os_class['type'] == 'WAP':
+        for os_class in os_match['osclass']:
+              if os_class['type'] == 'WAP':
                     has_wifi = True
                     break
     
